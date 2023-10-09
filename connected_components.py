@@ -1,16 +1,23 @@
+from typing import Dict, List, Set
+
+
 """
 Connected components
 """
 
 
-def num_connected_components(n, edges):
+def num_connected_components(n: int, edges: List[List[int]]) -> int:
     """
     Given the number of nodes (n) and a list of undirected edges (edges),
     return the number of connected components in the graph.
     Should this count isolated nodes not connected by any edges?
     """
-    comps = {}
-    comp_dict = {}
+    """
+    - comps: a dictionary mapping a node to a set of other nodes connected to it
+    - comp_dict: a dictionary 
+    """
+    comps: Dict[Set[int]] = {}
+    comp_dict: Dict[int] = {}
     for (n1, n2) in edges:
         if n1 not in comps and n2 not in comps:
             if n1 in comp_dict:
